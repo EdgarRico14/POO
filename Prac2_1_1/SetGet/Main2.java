@@ -1,4 +1,4 @@
-package SetGet;
+package Prac2_1_1.SetGet;
 import java.util.Scanner;
 
 class Alumno {

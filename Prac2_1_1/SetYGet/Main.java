@@ -1,4 +1,4 @@
-package SetYGet;
+package Prac2_1_1.SetYGet;
 import java.util.Scanner;
 
 class Alumno {
@@ -58,11 +58,11 @@ class Materia {
 
     // Constructor
     public Materia(String nombre, String clave, int creditos, String etapa, String tipo) {
-        this.nombre = nombre;
-        this.clave = clave;
-        this.creditos = creditos;
-        this.etapa = etapa;
-        this.tipo = tipo;
+        setNombre(nombre);
+        setClave(clave);
+        setCreditos(creditos);
+        setEtapa(etapa);
+        setTipo(tipo);
     }
 
     // Getters and setters for Materia class
