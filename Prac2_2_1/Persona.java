@@ -1,12 +1,12 @@
 package Prac2_2_1;
 import java.util.Scanner;
 
-public class Persona {
-    private String nombre;
-    private int edad;
-    private String genero;
-    private String ocupacion;
-    private String direccion;
+class Persona {
+    String nombre;
+    int edad;
+    String genero;
+    String ocupacion;
+    String direccion;
 
     public Persona(String nombre, int edad, String genero, String ocupacion, String direccion) {
         setNombre(nombre);
@@ -56,7 +56,7 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    public static void comer(String comida, String nombre) {
+    public void comer(String comida, String nombre) {
         System.out.println(nombre + " está comiendo " + comida);
     }
 
@@ -94,9 +94,9 @@ public class Persona {
         System.out.println("Género: " + persona.getGenero());
         System.out.println("Ocupación: " + persona.getOcupacion());
         System.out.println("Dirección: " + persona.getDireccion());
-        
+
         System.out.println("\nPruebas de comportamiento:");
-        Persona.comer("pizza", nombre);
+        persona.comer("pizza", nombre);
         persona.dormir(8, nombre);
         persona.hacerEjercicio("correr", nombre);
 
