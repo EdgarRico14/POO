@@ -1,14 +1,14 @@
 package Prac2_2_1;
 import java.util.Scanner;
 
-class Persona {
+class persona {
     String nombre;
     int edad;
     String genero;
     String ocupacion;
     String direccion;
 
-    public Persona(String nombre, int edad, String genero, String ocupacion, String direccion) {
+    public persona(String nombre, int edad, String genero, String ocupacion, String direccion) {
         setNombre(nombre);
         setEdad(edad);
         setGenero(genero);
@@ -67,6 +67,9 @@ class Persona {
     public void hacerEjercicio(String tipoEjercicio, String nombre) {
         System.out.println(nombre + " hizo ejercicio de tipo " + tipoEjercicio);
     }
+}
+
+public class Persona {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -86,19 +89,19 @@ class Persona {
         System.out.println("Ingrese la dirección de la persona:");
         String direccion = scanner.nextLine();
 
-        Persona persona = new Persona(nombre, edad, genero, ocupacion, direccion);
+        persona Persona = new persona(nombre, edad, genero, ocupacion, direccion);
 
         System.out.println("\nInformación de la persona:");
-        System.out.println("Nombre: " + persona.getNombre());
-        System.out.println("Edad: " + persona.getEdad());
-        System.out.println("Género: " + persona.getGenero());
-        System.out.println("Ocupación: " + persona.getOcupacion());
-        System.out.println("Dirección: " + persona.getDireccion());
+        System.out.println("Nombre: " + Persona.getNombre());
+        System.out.println("Edad: " + Persona.getEdad());
+        System.out.println("Género: " + Persona.getGenero());
+        System.out.println("Ocupación: " + Persona.getOcupacion());
+        System.out.println("Dirección: " + Persona.getDireccion());
 
         System.out.println("\nPruebas de comportamiento:");
-        persona.comer("pizza", nombre);
-        persona.dormir(8, nombre);
-        persona.hacerEjercicio("correr", nombre);
+        Persona.comer("pizza", nombre);
+        Persona.dormir(8, nombre);
+        Persona.hacerEjercicio("correr", nombre);
 
         scanner.close();
     }
