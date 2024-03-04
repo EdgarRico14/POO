@@ -67,7 +67,9 @@ class persona {
     private void tomarShower(String tipoJabon) {
         System.out.println(nombre + " se está bañando con " + tipoJabon);
     }
+}
 
+public class Persona{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -87,19 +89,19 @@ class persona {
         System.out.println("Ingrese la dirección de la persona:");
         String direccion = scanner.nextLine();
 
-        persona persona = new persona(nombre, edad, genero, ocupacion, direccion);
+        persona persona1 = new persona(nombre, edad, genero, ocupacion, direccion);
 
         System.out.println("\nInformación de la persona:");
-        System.out.println("Nombre: " + persona.getNombre());
-        System.out.println("Edad: " + persona.getEdad());
-        System.out.println("Género: " + persona.getGenero());
-        System.out.println("Ocupación: " + persona.getOcupacion());
-        System.out.println("Dirección: " + persona.getDireccion());
+        System.out.println("Nombre: " + persona1.getNombre());
+        System.out.println("Edad: " + persona1.getEdad());
+        System.out.println("Género: " + persona1.getGenero());
+        System.out.println("Ocupación: " + persona1.getOcupacion());
+        System.out.println("Dirección: " + persona1.getDireccion());
 
         System.out.println("\nPruebas de comportamiento:");
-        persona.comer("pozole");
-        persona.dormir(6);
-        persona.tomarShower("jabón de aloe vera"); 
+        persona1.comer("carne asada");
+        persona1.dormir(10);
+        persona.tomarShower("shampoo Head & Shoulders"); 
 
         scanner.close();
     }
