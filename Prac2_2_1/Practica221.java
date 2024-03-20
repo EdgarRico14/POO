@@ -1,14 +1,14 @@
 package Prac2_2_1;
 import java.util.Scanner;
 
-class persona {
+class Persona {
     String nombre;
     int edad;
     String genero;
     String ocupacion;
     String direccion;
 
-    public persona(String nombre, int edad, String genero, String ocupacion, String direccion) {
+    public Persona(String nombre, int edad, String genero, String ocupacion, String direccion) {
         setNombre(nombre);
         setEdad(edad);
         setGenero(genero);
@@ -56,20 +56,25 @@ class persona {
         this.direccion = direccion;
     }
 
-    public void comer(String comida, String nombre) {
+    public void comer(String comida) {
         System.out.println(nombre + " está comiendo " + comida);
     }
 
-    public void dormir(int horas, String nombre) {
+    public void dormir(int horas) {
         System.out.println(nombre + " durmió durante " + horas + " horas");
     }
 
-    public void hacerEjercicio(String tipoEjercicio, String nombre) {
+    public void dormir2(String dia, String lugar, String ropa){
+
+        System.out.println(nombre + " durmio el dia " + dia + " en " + lugar + " con " + ropa );
+    }
+
+    public void hacerEjercicio(String tipoEjercicio) {
         System.out.println(nombre + " hizo ejercicio de tipo " + tipoEjercicio);
     }
 }
 
-public class Persona {
+public class Practica221 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -89,8 +94,25 @@ public class Persona {
         System.out.println("Ingrese la dirección de la persona:");
         String direccion = scanner.nextLine();
 
-        persona Persona = new persona(nombre, edad, genero, ocupacion, direccion);
+        Persona Persona = new Persona(nombre, edad, genero, ocupacion, direccion);
 
+        System.out.println("Ingrese la comida que la persona está comiendo:");
+        String comida = scanner.nextLine();
+
+        System.out.println("Ingrese las horas que durmió:");
+        int horas = scanner.nextInt();
+        scanner.nextLine(); 
+
+        System.out.println("Ingrese el dia de la semana en que durmio: ");
+        String dia = scanner.nextLine();
+        System.out.println("Ingrese el lugar donde durmio: ");
+        String lugar = scanner.nextLine();
+        System.out.println("Ingrese el tipo de ropa con el que durmio: ");
+        String ropa = scanner.nextLine();
+
+        System.out.println("Ingrese el tipo de ejercicio que hizo:");
+        String tipoEjercicio = scanner.nextLine();
+        
         System.out.println("\nInformación de la persona:");
         System.out.println("Nombre: " + Persona.getNombre());
         System.out.println("Edad: " + Persona.getEdad());
@@ -99,9 +121,10 @@ public class Persona {
         System.out.println("Dirección: " + Persona.getDireccion());
 
         System.out.println("\nPruebas de comportamiento:");
-        Persona.comer("pizza", nombre);
-        Persona.dormir(8, nombre);
-        Persona.hacerEjercicio("correr", nombre);
+        Persona.comer(comida);
+        Persona.dormir(horas);
+        Persona.dormir2(dia, lugar, ropa);
+        Persona.hacerEjercicio(tipoEjercicio);
 
         scanner.close();
     }

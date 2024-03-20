@@ -64,12 +64,12 @@ class persona {
         System.out.println(nombre + " durmió durante " + horas + " horas");
     }
 
-    private void tomarShower(String tipoJabon) {
+    public void tomarShower(String tipoJabon) {
         System.out.println(nombre + " se está bañando con " + tipoJabon);
     }
 }
 
-public class Persona{
+public class Taller231{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -101,7 +101,7 @@ public class Persona{
         System.out.println("\nPruebas de comportamiento:");
         persona1.comer("carne asada");
         persona1.dormir(10);
-        persona.tomarShower("shampoo Head & Shoulders"); 
+        persona1.tomarShower("shampoo Head & Shoulders"); 
 
         scanner.close();
     }

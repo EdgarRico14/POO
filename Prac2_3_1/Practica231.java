@@ -1,14 +1,14 @@
 package Prac2_3_1;
 import java.util.Scanner;
 
-class persona {
+class Persona {
     String nombre;
     int edad;
     String genero;
     private String ocupacion;
     protected String direccion;
 
-    public persona(String nombre, int edad, String genero, String ocupacion, String direccion) {
+    public Persona(String nombre, int edad, String genero, String ocupacion, String direccion) {
         setNombre(nombre);
         setEdad(edad);
         setGenero(genero);
@@ -52,7 +52,7 @@ class persona {
         return direccion;
     }
 
-    public void setDireccion(String direccion) {
+    private void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 
@@ -68,7 +68,7 @@ class persona {
         System.out.println(nombre + " se está bañando con " + tipoJabon);
     }
 }
-public class Persona{
+public class Practica231{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -88,8 +88,18 @@ public class Persona{
         System.out.println("Ingrese la dirección de la persona:");
         String direccion = scanner.nextLine();
 
-        persona persona1 = new persona(nombre, edad, genero, ocupacion, direccion);
+        Persona persona1 = new Persona(nombre, edad, genero, ocupacion, direccion);
 
+        System.out.println("Ingrese la comida que la persona está comiendo:");
+        String comida = scanner.nextLine();
+
+        System.out.println("Ingrese las horas que durmió:");
+        int horas = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Ingrese lo que utilizó para bañarse:");
+        String objeto = scanner.nextLine();
+        
         System.out.println("\nInformación de la persona:");
         System.out.println("Nombre: " + persona1.getNombre());
         System.out.println("Edad: " + persona1.getEdad());
@@ -98,9 +108,9 @@ public class Persona{
         System.out.println("Dirección: " + persona1.getDireccion());
     
         System.out.println("\nPruebas de comportamiento:");
-        persona.comer("carne asada");
-        persona1.dormir(10);
-        persona.tomarShower("shampoo Head & Shoulders"); 
+        persona1.comer(comida);
+        persona1.dormir(horas);
+        persona1.tomarShower(objeto); 
 
         scanner.close();
     }
