@@ -108,7 +108,7 @@ class Bicicleta {
     }
 }
 
-public class Practica241 {
+public class Practica2411 {
     public static void main(String[] args) {
         Bicicleta bicicleta = new Bicicleta();
 

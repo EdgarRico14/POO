@@ -127,7 +127,7 @@ class Apendice {
         this.estado = estado;
     }
 
-    public boolean isEstaInflamado() {
+    public boolean getEstaInflamado() {
         return estaInflamado;
     }
 
@@ -215,7 +215,7 @@ public class Practica2412 {
         System.out.println("El hígado está funcionando: " + cuerpoHumano.getHigado().isEstaFuncionando());
         System.out.println("Nivel de enzimas del hígado: " + cuerpoHumano.getHigado().getNivelEnzimas());
         System.out.println("Estado del apéndice: " + cuerpoHumano.getApendice().getEstado());
-        System.out.println("El apéndice está inflamado: " + cuerpoHumano.getApendice().isEstaInflamado());
+        System.out.println("El apéndice está inflamado: " + cuerpoHumano.getApendice().getEstaInflamado());
         System.out.println("Longitud del apéndice: " + cuerpoHumano.getApendice().getLongitud());
     }
 }
