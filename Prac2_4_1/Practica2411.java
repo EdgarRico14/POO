@@ -1,34 +1,29 @@
 package Prac2_4_1;
+import java.util.Scanner;
 
 class Rueda {
     private double diametro;
-    private String material;
+    private boolean esAerodinamico; 
     private String tipo;
 
-    public Rueda() {
-        this.diametro = 26.5;
-        this.material = "Acero";
-        this.tipo = "Montaña";
-    }
-
     public double getDiametro() {
-        return this.diametro;
+        return diametro;
     }
 
     public void setDiametro(double diametro) {
         this.diametro = diametro;
     }
 
-    public String getMaterial() {
-        return this.material;
+    public boolean getesAerodinamico() {
+        return esAerodinamico;
     }
 
-    public void setMaterial(String material) {
-        this.material = material;
+    public void setesAerodinamico(boolean esAerodinamico) {
+        this.esAerodinamico = esAerodinamico;
     }
 
     public String getTipo() {
-        return this.tipo;
+        return tipo;
     }
 
     public void setTipo(String tipo) {
@@ -37,34 +32,28 @@ class Rueda {
 }
 
 class Cuadro {
-    private String tamaño;
-    private String material;
+    private String tamano;
+    private String forma;   
     private String color;
 
-    public Cuadro() {
-        this.tamaño = "Mediano";
-        this.material = "Aluminio";
-        this.color = "Rojo";
+    public String getTamano() {
+        return tamano;
     }
 
-    public String getTamaño() {
-        return this.tamaño;
+    public void setTamano(String tamano) {
+        this.tamano = tamano;
     }
 
-    public void setTamaño(String tamaño) {
-        this.tamaño = tamaño;
+    public String getForma() {
+        return forma;
     }
 
-    public String getMaterial() {
-        return this.material;
-    }
-
-    public void setMaterial(String material) {
-        this.material = material;
+    public void setForma(String forma) {
+        this.forma = forma;
     }
 
     public String getColor() {
-        return this.color;
+        return color;
     }
 
     public void setColor(String color) {
@@ -73,52 +62,91 @@ class Cuadro {
 }
 
 class Bicicleta {
-    private Rueda rueda;
-    private Cuadro cuadro;
     private String modelo;
+    private String usuario; // (infante, joven , adulto)
+    private int talla;
+    
+    Rueda[] rueda = new Rueda[2];
+    Cuadro cuadro = new Cuadro();
 
-    public Bicicleta() {
-        this.rueda = new Rueda();
-        this.cuadro = new Cuadro();
-        this.modelo = "BMX";
+    public void setModelo(String modelo) { 
+        this.modelo = modelo; 
+    }
+    public void setUsuario(String usuario) { 
+        this.usuario = usuario; 
+    }
+    public void setTalla(int talla) { 
+        this.talla = talla; 
     }
 
-    public Rueda getRueda() {
-        return this.rueda;
+    public String getModelo() { 
+        return modelo; 
     }
-
-    public void setRueda(Rueda rueda) {
-        this.rueda = rueda;
+    public String getUsuario() { 
+        return usuario; 
     }
-
-    public Cuadro getCuadro() {
-        return this.cuadro;
-    }
-
-    public void setCuadro(Cuadro cuadro) {
-        this.cuadro = cuadro;
-    }
-
-    public String getModelo() {
-        return this.modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+    public int getTalla() { 
+        return talla; 
     }
 }
 
 public class Practica2411 {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         Bicicleta bicicleta = new Bicicleta();
 
+        System.out.println("Ingrese el modelo de la bicicleta: ");
+        bicicleta.setModelo(scanner.nextLine());
+
+        System.out.println("Tipo de usuario: (infante / joven / adulto): ");
+        bicicleta.setUsuario(scanner.nextLine());
+
+        System.out.println("Talla de la bicicleta en pulgadas: ");
+        bicicleta.setTalla(scanner.nextInt());
+        scanner.nextLine(); // consume newline left-over
+
+        System.out.println("Ingrese el tamaño del cuadro (chico / mediano / grande): ");
+        bicicleta.cuadro.setTamano(scanner.nextLine());
+
+        System.out.println("Ingrese la forma del cuadro: ");
+        bicicleta.cuadro.setForma(scanner.nextLine());
+
+        System.out.println("Ingrese el color del cuadro: ");
+        bicicleta.cuadro.setColor(scanner.nextLine());
+
+        for (int i = 0; i < 2; i++) {
+            
+            System.out.println("Ingrese el diametro de la rueda " + (i+1) + " en pulgadas: ");
+            bicicleta.rueda[i].setDiametro(scanner.nextDouble());
+            scanner.nextLine(); // consume newline left-over
+
+            System.out.println("Ingrese el esAerodinamico de la rueda " + (i+1) + ": ");
+            bicicleta.rueda[i].setesAerodinamico(scanner.nextBoolean());
+
+            System.out.println("Ingrese el tipo de la rueda " + (i+1) + ": ");
+            bicicleta.rueda[i].setTipo(scanner.nextLine());
+        }
+
+        System.out.println("\nDatos de la bicicleta:");
         System.out.println("Modelo de la bicicleta: " + bicicleta.getModelo());
-        System.out.println("Diametro de la rueda: " + bicicleta.getRueda().getDiametro());
-        System.out.println("Material de la rueda: " + bicicleta.getRueda().getMaterial());
-        System.out.println("Tipo de la rueda: " + bicicleta.getRueda().getTipo());
-        System.out.println("Tamaño del cuadro: " + bicicleta.getCuadro().getTamaño());
-        System.out.println("Material del cuadro: " + bicicleta.getCuadro().getMaterial());
-        System.out.println("Color del cuadro: " + bicicleta.getCuadro().getColor());
+        System.out.println("Tipo de usuario: " + bicicleta.getUsuario());
+        System.out.println("Talla de la bicicleta en pulgadas: " + bicicleta.getTalla());
+
+        System.out.println("\n---Datos del cuadro---");
+        System.out.println("Tamaño del cuadro: " + bicicleta.cuadro.getTamano());
+        System.out.println("Forma del cuadro: " + bicicleta.cuadro.getForma());
+        System.out.println("Color del cuadro: " + bicicleta.cuadro.getColor());
+
+        System.out.println("\n---Datos de las ruedas---");
+        for (int i = 0; i < 2; i++) {
+            System.out.println("\nRueda " + (i+1) + ":");
+            System.out.println("Diametro de la rueda: " + bicicleta.rueda[i].getDiametro());
+            System.out.println("esAerodinamico de la rueda: " + bicicleta.rueda[i].getesAerodinamico());
+            System.out.println("Tipo de la rueda: " + bicicleta.rueda[i].getTipo());
+        }
+
+        scanner.close();
     }
 }
 

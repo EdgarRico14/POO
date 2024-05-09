@@ -1,15 +1,10 @@
 package Prac2_4_1;
+import java.util.Scanner;
 
 class Corazon {
     private int ritmoCardiaco;
-    private String estado;
+    private int latidosTotales;
     private boolean estaLatindo;
-
-    public Corazon() {
-        this.ritmoCardiaco = 70;
-        this.estado = "Saludable";
-        this.estaLatindo = true;
-    }
 
     public int getRitmoCardiaco() {
         return ritmoCardiaco;
@@ -19,12 +14,12 @@ class Corazon {
         this.ritmoCardiaco = ritmoCardiaco;
     }
 
-    public String getEstado() {
-        return estado;
+    public int getLatidosTotales() {
+        return latidosTotales;
     }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
+    
+    public void setLatidosTotales(int latidosTotales) {
+        this.latidosTotales = latidosTotales;
     }
 
     public boolean isEstaLatindo() {
@@ -37,22 +32,16 @@ class Corazon {
 }
 
 class Pulmon {
-    private String estado;
+    private double volumenMaximo;
     private int capacidad;
     private boolean estaRespirando;
 
-    public Pulmon() {
-        this.estado = "Saludable";
-        this.capacidad = 6; // en litros
-        this.estaRespirando = true;
+    public double getVolumenMaximo() {
+        return volumenMaximo;
     }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
+    
+    public void setVolumenMaximo(double volumenMaximo) {
+        this.volumenMaximo = volumenMaximo;
     }
 
     public int getCapacidad() {
@@ -73,22 +62,16 @@ class Pulmon {
 }
 
 class Higado {
-    private String estado;
+    private double tasaFiltracion;
     private boolean estaFuncionando;
     private int nivelEnzimas;
 
-    public Higado() {
-        this.estado = "Saludable";
-        this.estaFuncionando = true;
-        this.nivelEnzimas = 42; // en U/L
+    public double getTasaFiltracion() {
+        return tasaFiltracion;
     }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
+    
+    public void setTasaFiltracion(double tasaFiltracion) {
+        this.tasaFiltracion = tasaFiltracion;
     }
 
     public boolean isEstaFuncionando() {
@@ -109,22 +92,16 @@ class Higado {
 }
 
 class Apendice {
-    private String estado;
+    private boolean esVestigial;
     private boolean estaInflamado;
     private double longitud; // en centímetros
 
-    public Apendice() {
-        this.estado = "Saludable";
-        this.estaInflamado = false;
-        this.longitud = 8.0; // longitud promedio del apéndice humano
+    public boolean getEsVestigial() {
+        return esVestigial;
     }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
+    
+    public void setEsVestigial(boolean esVestigial) {
+        this.esVestigial = esVestigial;
     }
 
     public boolean getEstaInflamado() {
@@ -145,50 +122,22 @@ class Apendice {
 }
 
 class CuerpoHumano {
-    private Corazon corazon;
-    private Pulmon pulmon;
-    private Higado higado;
-    private Apendice apendice;
+
     private String estadoGeneral;
+    private double altura;
+    private double peso;
 
-    public CuerpoHumano() {
-        this.corazon = new Corazon();
-        this.pulmon = new Pulmon();
-        this.higado = new Higado();
-        this.apendice = new Apendice();
-        this.estadoGeneral = "Saludable";
+    Corazon corazon = new Corazon();
+    Pulmon pulmon = new Pulmon();
+    Higado higado = new Higado();
+    Apendice apendice = new Apendice();
+
+    
+    public double getPeso(){
+        return peso;
     }
-
-    public Corazon getCorazon() {
-        return corazon;
-    }
-
-    public void setCorazon(Corazon corazon) {
-        this.corazon = corazon;
-    }
-
-    public Pulmon getPulmon() {
-        return pulmon;
-    }
-
-    public void setPulmon(Pulmon pulmon) {
-        this.pulmon = pulmon;
-    }
-
-    public Higado getHigado() {
-        return higado;
-    }
-
-    public void setHigado(Higado higado) {
-        this.higado = higado;
-    }
-
-    public Apendice getApendice() {
-        return apendice;
-    }
-
-    public void setApendice(Apendice apendice) {
-        this.apendice = apendice;
+    public void setPeso(double peso){
+        this.peso = peso;
     }
 
     public String getEstadoGeneral() {
@@ -198,25 +147,96 @@ class CuerpoHumano {
     public void setEstadoGeneral(String estadoGeneral) {
         this.estadoGeneral = estadoGeneral;
     }
+
+    public void setAltura(double altura){
+        this.altura = altura;
+    }
+    public double getAltura(){
+        return altura;
+    }
 }
 
 public class Practica2412 {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         CuerpoHumano cuerpoHumano = new CuerpoHumano();
 
+        System.out.println("Ingrese la altura en metros del cuerpo: ");
+        cuerpoHumano.setAltura(scanner.nextDouble());
+        scanner.nextLine();
+
+        System.out.println("Ingrese el estado general del cuerpo humano: ");
+        cuerpoHumano.setEstadoGeneral(scanner.nextLine());
+
+        System.out.println("Peso del cuerpo en kg: ");
+        cuerpoHumano.setPeso(scanner.nextDouble());
+
+        System.out.println("Ingrese el ritmo cardiaco del corazón: ");
+        cuerpoHumano.corazon.setRitmoCardiaco(scanner.nextInt());
+
+        scanner.nextLine(); // consume newline left-over
+        System.out.print("Latidos totales: ");
+        cuerpoHumano.corazon.setLatidosTotales(scanner.nextInt());
+
+        System.out.println("El corazón está latiendo (true/false): ");
+        cuerpoHumano.corazon.setEstaLatindo(scanner.nextBoolean());
+
+        scanner.nextLine(); // consume newline left-over
+        System.out.print("Volumen máximo: ");
+        cuerpoHumano.pulmon.setVolumenMaximo(scanner.nextDouble());
+
+        System.out.println("Ingrese la capacidad del pulmón: ");
+        cuerpoHumano.pulmon.setCapacidad(scanner.nextInt());
+
+        System.out.println("El pulmón está respirando (true/false): ");
+        cuerpoHumano.pulmon.setEstaRespirando(scanner.nextBoolean());
+
+        scanner.nextLine(); // consume newline left-over
+        System.out.print("Tasa de filtración: ");
+        cuerpoHumano.higado.setTasaFiltracion(scanner.nextDouble());
+
+        System.out.println("El hígado está funcionando (true/false): ");
+        cuerpoHumano.higado.setEstaFuncionando(scanner.nextBoolean());
+
+        System.out.println("Ingrese el nivel de enzimas del hígado: ");
+        cuerpoHumano.higado.setNivelEnzimas(scanner.nextInt());
+
+        scanner.nextLine(); // consume newline left-over
+        System.out.print("Es vestigial (true/false): ");
+        cuerpoHumano.apendice.setEsVestigial(scanner.nextBoolean());
+
+        System.out.println("El apéndice está inflamado (true/false): ");
+        cuerpoHumano.apendice.setEstaInflamado(scanner.nextBoolean());
+
+        System.out.println("Ingrese la longitud del apéndice (en centímetros): ");
+        cuerpoHumano.apendice.setLongitud(scanner.nextDouble());
+
+        System.out.println("\nDatos del Cuerpo Humano:");
+        System.out.println("Altura del cuerpo en metro es: " + cuerpoHumano.getAltura());
         System.out.println("Estado general del cuerpo humano: " + cuerpoHumano.getEstadoGeneral());
-        System.out.println("Ritmo cardiaco del corazón: " + cuerpoHumano.getCorazon().getRitmoCardiaco());
-        System.out.println("Estado del corazón: " + cuerpoHumano.getCorazon().getEstado());
-        System.out.println("El corazón está latiendo: " + cuerpoHumano.getCorazon().isEstaLatindo());
-        System.out.println("Estado del pulmón: " + cuerpoHumano.getPulmon().getEstado());
-        System.out.println("Capacidad del pulmón: " + cuerpoHumano.getPulmon().getCapacidad());
-        System.out.println("El pulmón está respirando: " + cuerpoHumano.getPulmon().isEstaRespirando());
-        System.out.println("Estado del hígado: " + cuerpoHumano.getHigado().getEstado());
-        System.out.println("El hígado está funcionando: " + cuerpoHumano.getHigado().isEstaFuncionando());
-        System.out.println("Nivel de enzimas del hígado: " + cuerpoHumano.getHigado().getNivelEnzimas());
-        System.out.println("Estado del apéndice: " + cuerpoHumano.getApendice().getEstado());
-        System.out.println("El apéndice está inflamado: " + cuerpoHumano.getApendice().getEstaInflamado());
-        System.out.println("Longitud del apéndice: " + cuerpoHumano.getApendice().getLongitud());
+        System.out.println("El peso es: " + cuerpoHumano.getPeso());
+
+        System.out.println("\n----Datos del Corazon----");
+        System.out.println("Ritmo cardiaco del corazón: " + cuerpoHumano.corazon.getRitmoCardiaco());
+        System.out.println("Latidos totales: " + cuerpoHumano.corazon.getLatidosTotales());
+        System.out.println("El corazón está latiendo: " + cuerpoHumano.corazon.isEstaLatindo());
+
+        System.out.println("\n----Datos del Pulmon----");
+        System.out.println("Volumen máximo: " + cuerpoHumano.pulmon.getVolumenMaximo());
+        System.out.println("Capacidad del pulmón: " + cuerpoHumano.pulmon.getCapacidad());
+        System.out.println("El pulmón está respirando: " + cuerpoHumano.pulmon.isEstaRespirando());
+
+        System.out.println("\n----Datos del Higado----");
+        System.out.println("Tasa de filtración: " + cuerpoHumano.higado.getTasaFiltracion());
+        System.out.println("El hígado está funcionando: " + cuerpoHumano.higado.isEstaFuncionando());
+        System.out.println("Nivel de enzimas del hígado: " + cuerpoHumano.higado.getNivelEnzimas());
+
+        System.out.println("\n----Datos del Apendice----");
+        System.out.println("Es vestigial: " + cuerpoHumano.apendice.getEsVestigial());
+        System.out.println("El apéndice está inflamado: " + cuerpoHumano.apendice.getEstaInflamado());
+        System.out.println("Longitud del apéndice en cm: " + cuerpoHumano.apendice.getLongitud());
+
+        scanner.close();
     }
 }
 
