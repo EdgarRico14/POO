@@ -1,3 +1,5 @@
+Tarea de clase 3.2 adjunta en carpeta Tarea3_2. 10/may/2024
+
 Tarea de clase 3.1.1 adjunta en carpeta Tarea3_1_1. 8/may/2024
 
 Practica de Lab 2.4.1b adjunta en la carpeta Prac2_4_1b. 29/mar/2024
