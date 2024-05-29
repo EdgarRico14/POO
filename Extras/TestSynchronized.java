@@ -1,3 +1,4 @@
+package Extras;
 //example of java synchronized method
 class Table{
     synchronized void printTable(int n){//synchronized method

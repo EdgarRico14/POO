@@ -1,3 +1,4 @@
+package Extras;
 /*
  * Demostración de los eventos de ratón.*
 */

@@ -1,3 +1,4 @@
+package Extras;
 // Demostración de los clics de ratón y cómo diferenciar entre los botones del ratón.
 import java.awt.*;
 import java.awt.event.*;

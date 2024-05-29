@@ -1,3 +1,4 @@
+package Extras;
 //Program of synchronized method by using annonymous class
 class Table{
     synchronized void printTable(int n){//synchronized method

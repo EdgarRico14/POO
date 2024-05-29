@@ -1,3 +1,4 @@
+package Extras;
 // Creación de botones JCheckBox.
 import java.awt.*;
 import java.awt.event.*;
