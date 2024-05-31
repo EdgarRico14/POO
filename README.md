@@ -1,3 +1,6 @@
+Practicas de Laboratorio 4.1.1 , 4.2.1 adjuntadas en carpetas
+Prac4_1_1 , Prac4_2_1 respectivamente. 29/may/2024
+
 Practicas de Laboratorio 3.1.1 , 3.2 , 3.3 adjuntadas en carpetas
 Prac3_1_1 , Prac3_2 , Prac3_3 respectivamente. 18/may/2024
 
